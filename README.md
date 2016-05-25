@@ -72,6 +72,10 @@ This sets up a Timer Compare Interrupt on Timer1 for the tone frequencies. (You 
 
 This is a multiplier applied to the volume of any tones played. By default this is 1.00 - a value of 0.34 would make all tones 34% of their programmed volume;
 
+**vol.tone**(unsigned int **frequency**, byte **volume**);
+
+This is where the magic happens. At the frequency you specify, your Arduino will analogWrite(**volume**) to the speaker with a PWM frequency of 62.5KHz, for half the duration of a single period of the **frequency** before pulling it `LOW`. This high-speed PWM is beyond your range of hearing, (and probably the functioning range of your speaker) so it will just sound like quieter or louder version of the input frequency!
+
 ### Limitations
 Unfortunately, cheating the Arduino's normal functions in this way means we'll lose some of them. This is also still a proof-of-concept library at this point, so it may break more functionality than I'm aware of. Sorry!
 
