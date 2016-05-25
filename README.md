@@ -21,4 +21,7 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 
 ### Usage
 
-test
+Before we get into how to use the Volume library, let's quickly talk about it's limitations:
+
+**Volume alters Timer0 for 62.5KHz PWM:**
+Timer0 is normally used for the `delay()`, `delayMicroseconds()`, `millis()` and `micros()` functions. Normally with Timer0 set with a divisor of 64, `delay(1000)` would wait for 1 second - but because Volume sets Timer0 with a divisor of 1, `delay(1000)` will now only wait for 15.625ms!
