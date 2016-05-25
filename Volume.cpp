@@ -56,7 +56,7 @@ void Volume::tone(int frequency, byte volume)
   OCR1A = _clk;
   sei(); // allow interrupts
 
-  _toneVol = volume*_masterVol;
+  _toneVol = volume;
   return;
 }
 
@@ -87,7 +87,7 @@ ISR(TIMER1_COMPA_vect) {
   if (_toneEnable == true) {
     if (_toneState == false) {
       _toneState = !_toneState;
-      analogWrite(_p, _toneVol);
+      analogWrite(_p, _toneVol*(_masterVol/100.00));
     }
     else if (_toneState == true) {
       _toneState = !_toneState;
