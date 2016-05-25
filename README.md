@@ -12,3 +12,7 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 - [Issues and support](#issues-and-support)
 - [Contributing](#contributing)
 - [License and credits](#license-and-credits)
+
+### Installation
+
+This is a test
