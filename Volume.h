@@ -1,7 +1,7 @@
 /*
   Volume.h - Library for tone() with 8-bit volume control.
   Created by Connor Nishijima, May 25th 2016.
-  Released into the public domain.
+  Released under the GPLv3 license.
 */
 #ifndef volume_h
 #define volume_h
