@@ -1,11 +1,12 @@
-arduino-volume
-===========================================
+#arduino-volume
+----------
 **Arduino tone() now has 8-bit volume control!**
 
 Ever needed a project to play a tone through a speaker or piezo that *wasn't* blisteringly loud? You can bring the volume down with a resistor, but what if you needed a loud alert beep at some point as well?
 
 **Now it's no longer an issue.** :) Using ultra-fast PWM, the Volume library allows the speaker itself to act as an RC filter to produce *smooth* (8-bit) analog-like volume control.
 
+----------
 # Contents
 - [Installation](#installation)
 - [Usage](#usage)
@@ -14,12 +15,14 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 - [Contributing](#contributing)
 - [License and credits](#license-and-credits)
 
+----------
 ### Installation
 
 1. Click "Clone or Download" above to get an "arduino-volume-master.zip" file.
 2. Extract it's contents to the libraries folder in your sketchbook.
 3. Rename the folder from "arduino-volume-master" to "Volume".
 
+----------
 ### Usage
 
 Using the volume-controlled `vol.tone()` function looks very similar to the Arduino `tone()`, but the function arguments are very different:
@@ -58,6 +61,7 @@ Here is what you need to get started with the bare minimum:
 
 Of course, you can set the volume to any value between 0 and 255 you'd like, for full 8-bit volume fades.
 
+----------
 ### Functions
 
 **Volume vol**(unsigned int **speakerPin**);
@@ -88,6 +92,7 @@ These are replacements to the standard delay() and delayMicroseconds() Arduino f
 
 This stops any currently playing tones, and resets Timer0 to it's default functionality. Creative use of `vol.begin()` and `vol.end()` can usually resolve conflicts with other libraries or functions that might need Timer0 (volume) or Timer1 (frequency) to be in their usual settings.
 
+----------
 ### Limitations
 Unfortunately, cheating the Arduino's normal functions in this way means we'll lose some of them. This is also still a proof-of-concept library at this point, so it may break more functionality than I'm aware of. Sorry!
 
