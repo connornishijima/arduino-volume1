@@ -87,7 +87,7 @@ ISR(TIMER1_COMPA_vect) {
   if (_toneEnable == true) {
     if (_toneState == false) {
       _toneState = !_toneState;
-      analogWrite(_p, _toneVol*(_masterVol/100.00));
+      analogWrite(_p, _toneVol*_masterVol);
     }
     else if (_toneState == true) {
       _toneState = !_toneState;
