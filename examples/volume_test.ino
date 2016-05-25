@@ -25,7 +25,7 @@ void loop()
   vol.delay(1000);
   R2D2();         // BRRT doo doo doo doo doo doo doo doo DIOooo BRRT!
   vol.delay(1000);
-  jetsonsCar();   // Wuuuuub wuuuub wuuub wuub wub wub wub wubwubwubwubwub!
+  jetsons();   // Wuuuuub wuuuub wuuub wuub wub wub wub wubwubwubwubwub!
   vol.delay(1000);
   
   vol.end(); // Once Volume is ended, regular functionality returns to tone() and delay().
@@ -148,23 +148,55 @@ void R2D2() {
   vol.noTone();
 }
 
-void jetsonsCar() {
-  int f = 250;
-  int v = 0;
+void jetsons() {
+
+  int f = 659;       // MEET
+  int v = 254;
+  while(v > 0){
+    vol.tone(f,v);
+    v-=2;
+    vol.delay(1);
+  }
+  vol.delay(250);
+  f = 831;           // GEORGE
+   v = 254;
+  while(v > 0){
+    vol.tone(f,v);
+    v-=2;
+    vol.delay(1);
+  }
+  vol.delay(250);
+  f = 932;           // JET
+  v = 254;
+  while(v > 0){
+    vol.tone(f,v);
+    v-=2;
+    vol.delay(1);
+  }
+  vol.delay(50);
+  f = 988;           // SON!
+  v = 254;
+  while(v > 32){
+    vol.tone(f,v);
+    v-=1;
+    vol.delay(2);
+  }
+  delay(250);
   int fadeV = 1;
-  while (f < 9000) {
+  
+  while (f < 7000) {
     vol.tone(f / 4, constrain(v,0,255));
     f += 3;
 
     if (v < 200 && fadeV == 1) {
-      v += ((f/9000.00)*100)/10;
+      v += ((f/7000.00)*100)/10;
     }
     else {
       fadeV = 0;
     }
 
     if (v > -50 && fadeV == 0) {
-      v -= ((f/9000.00)*100)/10;
+      v -= ((f/7000.00)*100)/10;
     }
     else {
       fadeV = 1;
@@ -173,7 +205,7 @@ void jetsonsCar() {
     vol.delay(1);
   }
 
-  int i = 4000;
+  int i = 8000;
   float multiplier = 1.00;
   while(i > 0){
     vol.tone(f / 4, constrain(v,0,255)*multiplier);
@@ -193,7 +225,7 @@ void jetsonsCar() {
     }
 
     if(multiplier > 0){
-      multiplier -= 0.0003;
+      multiplier -= 0.0002;
     }
     else{
       multiplier = 0;
