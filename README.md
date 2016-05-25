@@ -77,12 +77,15 @@ This is a multiplier applied to the volume of any tones played. By default this 
 *This is where the magic happens.* At the frequency you specify, your Arduino will analogWrite(**volume**) to the speaker with a PWM frequency of 62.5KHz, for half the duration of a single period of the **frequency** before pulling it `LOW`. (Using Timer1 compare-match interrupts to maintain the input frequency) This high-speed PWM is beyond your range of hearing, (and probably the functioning range of your speaker) so it will just sound like a quieter or louder version of the input frequency!
 
 **vol.noTone**();
+
 This is identical in function to the standard `noTone()` function, this stops any currently playing tones.
 
 **vol.delay**(); & **vol.delayMicroseconds**();
+
 These are replacements to the standard delay() and delayMicroseconds() Arduino functions designed to compensate for the changes in the Timer0 clock divisor. See [Limitations](#limitations).
 
 **vol.end**();
+
 This stops any currently playing tones, and resets Timer0 to it's default functionality. Creative use of `vol.begin()` and `vol.end()` can usually resolve conflicts with other libraries or functions that might need Timer0 (volume) or Timer1 (frequency) to be in their usual settings.
 
 ### Limitations
