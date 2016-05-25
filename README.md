@@ -15,4 +15,10 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 
 ### Installation
 
-This is a test
+1. Click "Clone or Download" above to get an "arduino-volume-master.zip" file.
+2. Extract it's contents to the libraries folder in your sketchbook.
+3. Rename the folder from "arduino-volume-master" to "Volume".
+
+### Usage
+
+test
