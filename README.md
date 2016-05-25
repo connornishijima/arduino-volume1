@@ -1,5 +1,7 @@
-#arduino-volume
-**Arduino tone() now has 8-bit volume control!**
+#Arduino Volume Library
+**Arduino tone() just got 8-bit volume control!***
+
+**with no extra components!*
 
 Ever needed a project to play a tone through a speaker or piezo that *wasn't* blisteringly loud? You can bring the volume down with a resistor, but what if you needed a loud alert beep at some point as well?
 
