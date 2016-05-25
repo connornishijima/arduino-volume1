@@ -9,6 +9,7 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 # Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Functions](#functions)
 - [Limitations](#limitations)
 - [Contributing](#contributing)
 - [License and credits](#license-and-credits)
@@ -21,8 +22,54 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 
 ### Usage
 
+Using the volume-controlled `vol.tone()` function looks very similar to the Arduino `tone()`, but the function arguments are very different:
 
-### Limitations ###
+**Arduino:**
+ - **tone**(unsigned int **pin**, unsigned int **frequency**);
+
+**Volume:**
+ - vol.**tone**(unsigned int **frequency**, byte **volume**);
+
+Volume control is limited to pins 5 & 6. See [Limitations](#limitations).
+
+----------
+Here is what you need to get started with the bare minimum:
+
+    #include "Volume.h" // Include the Volume library
+    
+    const int speakerPin = 5; // Only pins 5 or 6 may be used
+    Volume vol(speakerPin);   
+    
+    void setup(){
+	    vol.begin();
+	}
+	void loop(){
+		vol.tone(1000,255); // 100% volume
+		vol.delay(500);
+		vol.tone(1000,192); // 75% volume
+		vol.delay(500);
+		vol.tone(1000,127); // 50% volume
+		vol.delay(500);
+		vol.tone(1000,64); // 25% volume
+		vol.delay(500);
+		vol.tone(1000,12); // 5% volume
+		vol.delay(500);
+	}
+
+Of course, you can set the volume to any value between 0 and 255 you'd like, for full 8-bit volume fades.
+
+### Functions
+
+**Volume vol**(unsigned int **speakerPin**);
+This initializes the Volume library after import. "vol" can be any word you want, as long as it's reflected in the rest of your code.
+
+**vol.begin**();
+This sets up a Timer Compare Interrupt on Timer1 for the tone frequencies. (You won't hear anything until a `vol.tone()` is called.)
+
+**vol.setMasterVolume**(float **percentage**);
+This is a multiplier applied to the volume of any tones played. By default this is 1.00 - a value of 0.34 would make all tones 34% of their programmed volume;
+
+### Limitations
 Unfortunately, cheating the Arduino's normal functions in this way means we'll lose some of them. This is also still a proof-of-concept library at this point, so it may break more functionality than I'm aware of. Sorry!
 
 **16MHz Only:**
