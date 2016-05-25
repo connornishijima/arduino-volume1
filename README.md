@@ -61,12 +61,15 @@ Of course, you can set the volume to any value between 0 and 255 you'd like, for
 ### Functions
 
 **Volume vol**(unsigned int **speakerPin**);
+
 This initializes the Volume library after import. "vol" can be any word you want, as long as it's reflected in the rest of your code.
 
 **vol.begin**();
+
 This sets up a Timer Compare Interrupt on Timer1 for the tone frequencies. (You won't hear anything until a `vol.tone()` is called.)
 
 **vol.setMasterVolume**(float **percentage**);
+
 This is a multiplier applied to the volume of any tones played. By default this is 1.00 - a value of 0.34 would make all tones 34% of their programmed volume;
 
 ### Limitations
