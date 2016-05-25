@@ -114,3 +114,15 @@ Speaking of Timer0 it's normally used for the `delay()`, `delayMicroseconds()`, 
 **Volume does not yet offer fixed millis() or micros() functions:**
 
 I haven't gotten around to toying with these yet. If you need to use `millis()` or `micros()` BETWEEN playing sounds, just use a `vol.end()` to reset Timer0 to it's default function, and `vol.begin()` to use it for Volume again after you're done.
+
+----------
+# Contributing
+As I've only written one library before for my own use, I'm still new to this! Any advice or pull requests are welcome. :)
+
+----------
+# License and Credits
+**Developed by Connor Nishijima (2016)**
+
+**Special Thanks to Andrew Neal** (For putting up with the incessant and inconsistent artificial "cricket-duino" hidden in his vent that I developed this library for.)
+
+**Released under the [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).**
