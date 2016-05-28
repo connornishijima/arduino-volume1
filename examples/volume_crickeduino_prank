@@ -13,7 +13,7 @@
 
    I developed this library specifically for this project, so that I
    could hide a "cricket" in my pal's vent with magnets. By driving the
-   speaker or piezo with a PWM whose frequency is higher than you hearing
+   speaker or piezo with a PWM whose frequency is higher than your hearing
    range, you can attenuate the perceived volume of the sound creating a
    more convincing cricket.
 
