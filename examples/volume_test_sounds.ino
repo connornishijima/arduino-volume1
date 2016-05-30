@@ -89,8 +89,8 @@ void R2D2() {
   int beeps[] = {1933, 2156, 1863, 1505, 1816, 1933, 1729, 2291};
   int buzzVols[] = {144, 180, 216, 252, 252, 252, 252, 216, 180, 144};
 
-  int i = 10;
-  while (i > 0) {
+  int i = 9;
+  while (i >= 0) {
     vol.tone(1050, buzzVols[i]);
     vol.delayMicroseconds(20);
     vol.tone(1050, buzzVols[i] / 8);
