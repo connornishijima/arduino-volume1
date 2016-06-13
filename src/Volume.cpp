@@ -26,7 +26,7 @@ void Volume::begin(){
   TCCR1B = 0; // same for TCCR1B
   TCNT1  = 0; // initialize counter value to 0
   // set compare match register for 1000 Hz increments
-  OCR1A = 16000000 / (1 * 10000) - 1;
+  OCR1A = F_CPU / (1 * 10000) - 1;
   // turn on CTC mode
   TCCR1B |= (1 << WGM12);
   // Set CS12, CS11 and CS10 bits for 1 prescaler
@@ -47,7 +47,7 @@ void Volume::tone(int frequency, byte volume)
 {
   
   _toneEnable = true;
-  long _clk = 16000000 / (1 * frequency*2) - 1;
+  long _clk = F_CPU / (1 * frequency*2) - 1;
   if (_clk >= 65536) {
     _clk = 65536 - 1;
   }
