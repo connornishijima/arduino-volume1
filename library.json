@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/connornishijima/arduino-volume.git"
   },
-  "version": "1.0.2",
+  "version": "1.1.0",
   "examples": "examples/*.ino",
   "frameworks": "arduino",
   "platforms":
