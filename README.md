@@ -92,13 +92,18 @@ This is a multiplier applied to the volume of any tones played. By default this 
 
 *This is where the magic happens.* At the frequency you specify, your Arduino will analogWrite(**volume**) to the speaker with a PWM frequency of 62.5KHz, for half the duration of a single period of the **frequency** before pulling it `LOW`. (Using Timer1 compare-match interrupts to maintain the input frequency) This high-speed PWM is beyond your range of hearing, (and probably the functioning range of your speaker) so it will just sound like a quieter or louder version of the input frequency!
 
+**vol.fadeOut**(unsigned int **duration**);
+
+This will cause the currently playing tone to fade out over the **duration** specified in milliseconds.
+
 **vol.noTone**();
 
 This is identical in function to the standard `noTone()` function, this stops any currently playing tones.
 
-**vol.delay**(); & **vol.delayMicroseconds**();
+**vol.delay**();   **vol.delayMicroseconds**();
+**vol.millis**();   **vol.micros**();
 
-These are replacements to the standard delay() and delayMicroseconds() Arduino functions designed to compensate for the changes in the Timer0 clock divisor. See [Limitations](#limitations).
+These are replacements to the standard time-keeping Arduino functions designed to compensate for the changes in the Timer0 clock divisor. See [Limitations](#limitations).
 
 **vol.end**();
 
@@ -145,9 +150,11 @@ This is because only pins ~~5 & 6~~ are driven by Timer0, *which can do PWM at a
 
 Speaking of Timer0 - it's normally used for the `delay()`, `delayMicroseconds()`, `millis()` and `micros()` functions. Normally with Timer0 set with a divisor of 64, `delay(1000)` would wait for 1 second - but because Volume sets Timer0 with a divisor of 1, `delay(1000)` will now only wait for 15.625ms! But don't worry. Volume provides alternative `vol.delay(time)` and `vol.delayMicroseconds(time)` functions with the math fixed for you. This new divisor is necessary to drive PWM at 62.5KHz, faster than you can hear.
 
-**Volume does not yet offer fixed millis() or micros() functions:**
+~~**Volume does not yet offer fixed millis() or micros() functions:**~~
 
-I haven't gotten around to toying with these yet. If you need to use `millis()` or `micros()` BETWEEN playing sounds, just use a `vol.end()` to reset Timer0 to it's default function, and `vol.begin()` to use it for Volume again after you're done.
+~~I haven't gotten around to toying with these yet. If you need to use `millis()` or `micros()` BETWEEN playing sounds, just use a `vol.end()` to reset Timer0 to it's default function, and `vol.begin()` to use it for Volume again after you're done.~~
+
+Version 1.1.1 added proper millis() and micros() support! See [Functions](#functions).
 
 ----------
 # Contributing
