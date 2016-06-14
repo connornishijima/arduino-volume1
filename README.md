@@ -135,7 +135,7 @@ Automatic detection of CPU speed was added in version 1.0.2!
 
 I don't know if I'll have this working on ATTiny*5 boards any time soon, though it's theoretically possible on any AVR with >= 2 timers. For now, it's only confirmed working on Arduino Uno (ATMega168/328) and Mega. (ATMega1280/2560)
 
-**Volume is limited to pins ~~5 & 6:**~~
+**Volume is limited to pins ~~5 & 6:~~**
 
 This is because only pins ~~5 & 6~~ are driven by Timer0, *which can do PWM at a frequency higher than your hearing range!* This is the main trick behind the volume function. It also means that while you're using Volume, normal `analogWrite()` use probably won't work on these two pins.
 
