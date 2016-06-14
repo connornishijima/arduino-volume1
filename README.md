@@ -96,6 +96,10 @@ These are replacements to the standard delay() and delayMicroseconds() Arduino f
 
 This stops any currently playing tones, and resets Timer0 to it's default functionality. Creative use of `vol.begin()` and `vol.end()` can usually resolve conflicts with other libraries or functions that might need Timer0 (volume) or Timer1 (frequency) to be in their usual settings.
 
+**vol.alternatePin**(bool **enabled**);
+
+This causes the AVR to use the ALTERNATE_PIN defined in the [Supported Pins](#supported-pins) section for sound production.
+
 ----------
 # Supported Pins
 
@@ -125,7 +129,7 @@ I don't know if I'll have this working on ATTiny*5 boards any time soon, though 
 
 ~~This is because only pins 5 & 6 are driven by Timer0, *which can do PWM at a frequency higher than your hearing range!* This is the main trick behind the volume function. It also means that while you're using Volume, normal `analogWrite()` use probably won't work on these two pins.~~
 
-Now that the Mega168, 328, 1280, 2560 and 16/32u4 are now supported, the supported pins differs from board to board. See Supported Pins section.
+Now that the Mega168, 328, 1280, 2560 and 16/32u4 are now supported, the supported pins differs from board to board. See [Supported Pins](#supported-pins) section.
 
 **Volume alters Timer0 for 62.5KHz PWM:**
 
