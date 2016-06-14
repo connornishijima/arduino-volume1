@@ -45,7 +45,7 @@ Using the volume-controlled `vol.tone()` function looks very similar to the Ardu
 **Volume:**
  - vol.**tone**(unsigned int **frequency**, byte **volume**);
 
-Volume control is limited to pins 5 & 6. See [Limitations](#limitations).
+Volume control is limited to certain pins. See [Supported Pins](#supported-pins).
 
 ----------
 Here is what you need to get started with the bare minimum:
