@@ -3,8 +3,8 @@
 
 #include "Volume.h" // Include the Volume library
 
-const int speakerPin = 5; // Volume is based on Timer0, so only pins 5 or 6 may be used. Sorry!
-Volume vol(speakerPin);      
+Volume vol; // Plug your speaker into the default pin for your board type:
+            // https://github.com/connornishijima/arduino-volume#supported-pins 
 
 void setup()
 {
