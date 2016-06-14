@@ -27,15 +27,6 @@ void loop()
   vol.delay(1000);
   jetsons();   // Wuuuuub wuuuub wuuub wuub wub wub wub wubwubwubwubwub!
   vol.delay(1000);
-  
-  vol.end(); // Once Volume is ended, regular functionality returns to tone() and delay().
-  
-  tone(speakerPin,1000);
-  delay(250);           // See?
-  noTone(speakerPin);
-  delay(5000);          // It works.
-
-  vol.begin(); // Start Volume (Set timer divisors) again for next loop().
 }
 
 
