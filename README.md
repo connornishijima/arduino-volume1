@@ -119,7 +119,7 @@ By default, the library uses DEFAULT_PIN for the speaker, *(changes from board t
 | (**Mega**) ATmega1280/2560      | 4           | 13            | YES    |
 | (**Leo/Micro**) ATmega16u2/32u4 | 9           | 10            | YES*   |
 
-* I recently killed my only ATmega32u4 board while stripping it for low-power usage and don't have one to test current releases of the library. If anyone who has a working one wants to report compatibility back to me, please do so as I've only tested the initial release!
+*I recently killed my only ATmega32u4 board while stripping it for low-power usage and don't have one to test current releases of the library. If anyone who has a working one wants to report compatibility back to me, please do so as I've only tested the initial release!
 
 ----------
 # Limitations
