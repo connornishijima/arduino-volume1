@@ -22,6 +22,14 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 ----------
 # Installation
 
+**With Arduino Library Manager:**
+
+1. Open *Sketch > Include Library > Manage Libraries* in the Arduino IDE.
+2. Search for "Volume", (look for "Connor Nishijima") and select the latest version.
+3. Click the Install button and Arduino will prepare the library and examples for you!
+
+**Manual Install:**
+
 1. Click "Clone or Download" above to get an "arduino-volume-master.zip" file.
 2. Extract it's contents to the libraries folder in your sketchbook.
 3. Rename the folder from "arduino-volume-master" to "Volume".
@@ -133,7 +141,7 @@ Now that the Mega168, 328, 1280, 2560 and 16/32u4 are now supported, the support
 
 **Volume alters Timer0 for 62.5KHz PWM:**
 
-Speaking of Timer0 - it's normally used for the `delay()`, `delayMicroseconds()`, `millis()` and `micros()` functions. Normally with Timer0 set with a divisor of 64, `delay(1000)` would wait for 1 second - but because Volume sets Timer0 with a divisor of 1, `delay(1000)` will now only wait for 15.625ms! But don't worry. Volume provides alternative `vol.delay(time)` and `vol.delayMicroseconds(time)` functions with the math fixed for you. This new divisor is necessary to drive PWM on pins 5 & 6 at 62.5KHz, faster than you can hear.
+Speaking of Timer0 - it's normally used for the `delay()`, `delayMicroseconds()`, `millis()` and `micros()` functions. Normally with Timer0 set with a divisor of 64, `delay(1000)` would wait for 1 second - but because Volume sets Timer0 with a divisor of 1, `delay(1000)` will now only wait for 15.625ms! But don't worry. Volume provides alternative `vol.delay(time)` and `vol.delayMicroseconds(time)` functions with the math fixed for you. This new divisor is necessary to drive PWM at 62.5KHz, faster than you can hear.
 
 **Volume does not yet offer fixed millis() or micros() functions:**
 
