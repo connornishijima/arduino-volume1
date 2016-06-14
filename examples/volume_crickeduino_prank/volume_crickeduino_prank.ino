@@ -49,8 +49,9 @@
 #include <Volume.h> // Used for programmatic volume control
 #include <JeeLib.h> // Used for deep sleep
 
-Volume vol(6); // Plug your speaker into this pin and GND. Can only be pin 5 or 6. (PWM Timer0 limitation)
-
+Volume vol; // Plug your speaker into the default pin for your board type:
+            // https://github.com/connornishijima/arduino-volume#supported-pins
+            
 ISR(WDT_vect) { // Jeelib Sleepy uses this to wake back up
   Sleepy::watchdogEvent();
 }
