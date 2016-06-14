@@ -1,4 +1,6 @@
-#Arduino Volume Library
+![#Arduino Volume Library](http://i.imgur.com/muq8u3K.jpg)
+
+** **
 **Arduino tone() just got 8-bit volume control!***
 
 **with no extra components!*
