@@ -67,6 +67,7 @@ Here is what you need to get started with the bare minimum:
 	    vol.delay(1000);
 	    vol.noTone();       // end sound
 	    vol.delay(1000);
+	    
 	    vol.tone(880,255); // 100% Volume
 	    vol.fadeOut(5000);  // Start a 5 second fade out
 	    vol.delay(5000);    // Wait for this fade to finish
