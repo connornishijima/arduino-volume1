@@ -11,17 +11,16 @@
 class Volume
 {
   public:
-    Volume(int pin);
-	void begin();
-	void end();
+    Volume();
+    void begin();
+    void end();
+    void alternatePin(bool enabled);
+    void throwError(byte errorNum);
     void tone(int frequency, byte volume);
     void noTone();
-	void delay(unsigned long d);
-	void delayMicroseconds(unsigned long du);
-	void setMasterVolume(float mv);
-  private:
-    int _pin;
-
+    void delay(unsigned long d);
+    void delayMicroseconds(unsigned long du);
+    void setMasterVolume(float mv);
 };
 
 #endif

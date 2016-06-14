@@ -3,7 +3,8 @@
 
 #include "Volume.h" // Include the Volume library
 
-Volume vol(6); // Plug your speaker into Pin 6
+Volume vol; // Plug your speaker into the default pin for your board type:
+            // https://github.com/connornishijima/arduino-volume#supported-pins
 
 // the setup routine runs once when you press reset:
 void setup() {

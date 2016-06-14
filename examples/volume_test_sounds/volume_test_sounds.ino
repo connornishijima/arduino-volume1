@@ -3,8 +3,8 @@
 
 #include "Volume.h" // Include the Volume library
 
-const int speakerPin = 5; // Volume is based on Timer0, so only pins 5 or 6 may be used. Sorry!
-Volume vol(speakerPin);      
+Volume vol; // Plug your speaker into the default pin for your board type:
+            // https://github.com/connornishijima/arduino-volume#supported-pins 
 
 void setup()
 {
@@ -27,15 +27,6 @@ void loop()
   vol.delay(1000);
   jetsons();   // Wuuuuub wuuuub wuuub wuub wub wub wub wubwubwubwubwub!
   vol.delay(1000);
-  
-  vol.end(); // Once Volume is ended, regular functionality returns to tone() and delay().
-  
-  tone(speakerPin,1000);
-  delay(250);           // See?
-  noTone(speakerPin);
-  delay(5000);          // It works.
-
-  vol.begin(); // Start Volume (Set timer divisors) again for next loop().
 }
 
 
