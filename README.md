@@ -61,14 +61,15 @@ Here is what you need to get started with the bare minimum:
 	void loop(){
 		vol.tone(1000,255); // 100% volume
 		vol.delay(500);
-		vol.tone(1000,192); // 75% volume
-		vol.delay(500);
 		vol.tone(1000,127); // 50% volume
 		vol.delay(500);
-		vol.tone(1000,64); // 25% volume
+		vol.tone(1000,12);  // 5% volume
 		vol.delay(500);
-		vol.tone(1000,12); // 5% volume
-		vol.delay(500);
+		vol.noTone();       // end sound
+		vol.delay(1000);
+		vol.tone(1000,255); // 100% Volume
+		vol.fadeOut(5000);  // Start a 5 second fade out
+		vol.delay(5000);    // Wait for this fade to finish
 	}
 
 Of course, you can set the volume to any value between 0 and 255 you'd like, for full 8-bit volume fades.
