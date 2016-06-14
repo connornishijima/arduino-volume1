@@ -53,27 +53,24 @@ Volume control is limited to certain pins. See [Supported Pins](#supported-pins)
 Here is what you need to get started with the bare minimum:
 
     #include "Volume.h" // Include the Volume library
-    
+
     Volume vol; // Plug your speaker into the default pin for your board type:
-                // https://github.com/connornishijima/arduino-volume#supported-pins
-    
-    void setup(){
-	    vol.begin();
-	}
-	void loop(){
-	    vol.tone(440,255); // 100% volume
-	    vol.delay(1000);
-	    vol.tone(440,127); // 50% volume
-	    vol.delay(1000);
-	    vol.tone(440,12);  // 5% volume
-	    vol.delay(1000);
-	    vol.noTone();       // end sound
-	    vol.delay(1000);
-	    
-	    vol.tone(880,255); // 100% Volume
-	    vol.fadeOut(5000);  // Start a 5 second fade out
-	    vol.delay(5000);    // Wait for this fade to finish
-	}
+    // https://github.com/connornishijima/arduino-volume#supported-pins
+
+    void setup() {
+      vol.begin();
+    }
+    void loop() {
+      byte volumes[4] = {255, 127, 12, 0};   // List of volumes: 100% Volume, 50% Volume, 5% Volume, 0% Volume
+      for (int i = 0; i < 4; i++) { // Iterate through volume list one second at a time
+        vol.tone(440, volumes[i]);
+        vol.delay(1000);
+      }
+
+      vol.tone(880, 255); // 100% Volume
+      vol.fadeOut(5000);  // Start a 5 second fade out
+      vol.delay(5000);    // Wait for this fade to finish
+    }
 
 Of course, you can set the volume to any value between 0 and 255 you'd like, for full 8-bit volume fades.
 
