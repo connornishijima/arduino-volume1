@@ -14,6 +14,7 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 - [Installation](#installation)
 - [Usage](#usage)
 - [Functions](#functions)
+- [Supported Pins](#supported-pins)
 - [Limitations](#limitations)
 - [Contributing](#contributing)
 - [License and credits](#license-and-credits)
@@ -96,20 +97,35 @@ These are replacements to the standard delay() and delayMicroseconds() Arduino f
 This stops any currently playing tones, and resets Timer0 to it's default functionality. Creative use of `vol.begin()` and `vol.end()` can usually resolve conflicts with other libraries or functions that might need Timer0 (volume) or Timer1 (frequency) to be in their usual settings.
 
 ----------
+# Supported Pins
+
+By default, the library uses DEFAULT_PIN for the speaker, *(changes from board to board due to Timer0 channels)* but if you need this pin for digitalWrite's, you can call *vol.alternatePin(**true**)* to use ALTERNATE_PIN instead.
+
+| Board                           | DEFAULT_PIN | ALTERNATE_PIN | Tested |
+|---------------------------------|-------------|---------------|--------|
+| (**Uno**) ATmega168/328(pb)     | 5           | 6             | YES    |
+| (**Mega**) ATmega1280/2560      | 4           | 13            | YES    |
+| (**Leo/Micro**) ATmega16u2/32u4 | 9           | 10            | YES*   |
+
+----------
 # Limitations
 Unfortunately, cheating the Arduino's normal functions in this way means we'll lose some of them. This is also still a proof-of-concept library at this point, so it may break more functionality than I'm aware of. Sorry!
 
-**16MHz Only:**
+~~**16MHz Only:**~~
 
-I haven't programmed in options for 8MHz boards yet, though if you want to use one, just replace all occurrences of "16000000" in the library files with "8000000" and it may work.
+~~I haven't programmed in options for 8MHz boards yet, though if you want to use one, just replace all occurrences of "16000000" in the library files with "8000000" and it may work.~~
+
+Automatic detection of CPU speed was added in version 1.0.2!
 
 **ATmega* Only:**
 
 I don't know if I'll have this working on ATTiny*5 boards any time soon, though it's theoretically possible on any AVR with >= 2 timers. For now, it's only confirmed working on Arduino Uno (ATMega168/328) and Mega. (ATMega1280/2560)
 
-**Volume is limited to pins 5 & 6:**
+~~**Volume is limited to pins 5 & 6:**~~
 
-This is because only pins 5 & 6 are driven by Timer0, *which can do PWM at a frequency higher than your hearing range!* This is the main trick behind the volume function. It also means that while you're using Volume, normal `analogWrite()` use probably won't work on these two pins.
+~~This is because only pins 5 & 6 are driven by Timer0, *which can do PWM at a frequency higher than your hearing range!* This is the main trick behind the volume function. It also means that while you're using Volume, normal `analogWrite()` use probably won't work on these two pins.~~
+
+Now that the Mega168, 328, 1280, 2560 and 16/32u4 are now supported, the supported pins differs from board to board. See Supported Pins section.
 
 **Volume alters Timer0 for 62.5KHz PWM:**
 
