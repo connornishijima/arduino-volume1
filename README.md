@@ -76,7 +76,7 @@ Of course, you can set the volume to any value between 0 and 255 you'd like, for
 ----------
 # Functions
 
-**Volume vol**(unsigned int **speakerPin**);
+**Volume vol**;
 
 This initializes the Volume library after import. "vol" can be any word you want, as long as it's reflected in the rest of your code.
 
