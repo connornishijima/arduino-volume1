@@ -18,6 +18,7 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 - [Functions](#functions)
 - [Supported Pins](#supported-pins)
 - [Limitations](#limitations)
+- [Volume Library Comparison](#volume-library-comparison)
 - [Contributing](#contributing)
 - [License and credits](#license-and-credits)
 
@@ -156,6 +157,29 @@ Speaking of Timer0 - it's normally used for the `delay()`, `delayMicroseconds()`
 ~~I haven't gotten around to toying with these yet. If you need to use `millis()` or `micros()` BETWEEN playing sounds, just use a `vol.end()` to reset Timer0 to it's default function, and `vol.begin()` to use it for Volume again after you're done.~~
 
 Version 1.1.1 added proper millis() and micros() support! See [Functions](#functions).
+
+----------
+# Volume Library Comparison
+
+Now that there are three separately-developed Volume libraries, here is a table delineating their abilities. One will be good for higher frequencies, one will do custom waves, one will have higher volume accuracy, and so forth. Eventually I'm looking to merge them, but for now each has it's strengths and weaknesses.
+
+| Library                       | **Volume1** | **Volume2** | **Volume3**   |
+|-------------------------------|-------------|-------------|---------------|
+| Accuracy                      | 8-bit (255) | 8-bit (255) | 10-bit (1023) |
+| Frequency Range (Hz)          | 120 - 5000  | 1 - 3400    | 1 - 4186      |
+| PWM Frequency (Hz)            | 62,500      | 62,500      | 100,000       |
+| Polyphony                     | 1           | 1           | 1             |
+| Needs vol.begin()             | YES         | YES         | NO            |
+| Compiled Library Size (Bytes) | 2,501       | 2,542       | 1,054         |
+| Ram Usage (Bytes)             | 39          | 457         | 24            |
+| Frequency Slide Quality       | GREAT       | BAD         | GOOD          |
+| Timer Usage                   | 0, 1        | 0, 1        | 1             |
+| Delay Issue (Timer0 Prescaler)| YES         | YES         | NO            |
+| Square Wave                   | YES         | YES         | YES           |
+| Sawtooth Wave                 | NO          | YES         | NO            |
+| Triangle Wave                 | NO          | YES         | NO            |
+| Sine Wave                     | NO          | YES         | NO            |
+| Custom Wave                   | NO          | YES         | NO            |
 
 ----------
 # Contributing
