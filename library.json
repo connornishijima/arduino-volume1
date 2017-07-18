@@ -10,7 +10,7 @@
   "repository":
   {
     "type": "git",
-    "url": "https://github.com/connornishijima/arduino-volume.git"
+    "url": "https://github.com/connornishijima/arduino-volume1.git"
   },
   "version": "1.1.2",
   "examples": "examples/*.ino",

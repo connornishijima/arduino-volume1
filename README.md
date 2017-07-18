@@ -56,7 +56,7 @@ Here is what you need to get started with the bare minimum:
     #include "Volume.h" // Include the Volume library
 
     Volume vol; // Plug your speaker into the default pin for your board type:
-    // https://github.com/connornishijima/arduino-volume#supported-pins
+    // https://github.com/connornishijima/arduino-volume1#supported-pins
 
     void setup() {
       vol.begin();

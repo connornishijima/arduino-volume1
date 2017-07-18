@@ -9,7 +9,7 @@
    at random intervals and go into deep sleep when not in use. Loudness
    attenuation is done using my Volume library:
 
-   https://github.com/connornishijima/arduino-volume
+   https://github.com/connornishijima/arduino-volume1
 
    I developed this library specifically for this project, so that I
    could hide a "cricket" in my pal's vent with magnets. By driving the
@@ -50,7 +50,7 @@
 #include <JeeLib.h> // Used for deep sleep
 
 Volume vol; // Plug your speaker into the default pin for your board type:
-            // https://github.com/connornishijima/arduino-volume#supported-pins
+            // https://github.com/connornishijima/arduino-volume1#supported-pins
             
 ISR(WDT_vect) { // Jeelib Sleepy uses this to wake back up
   Sleepy::watchdogEvent();
