@@ -18,6 +18,7 @@ class Volume
     void alternatePin(bool enabled);
     void throwError(byte errorNum);
     void tone(int frequency, byte volume);
+    void tone(float frequency, byte volume);
     void fadeOut(int duration);
     void noTone();
     unsigned long millis();
