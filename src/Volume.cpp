@@ -12,6 +12,7 @@ bool _toneState = false;
 byte _toneVol = 0;
 
 unsigned int _freq = 0;
+float _freq_float = 0.0f;
 
 float _masterVol = 1.00;
 
@@ -105,6 +106,26 @@ void Volume::tone(int frequency, byte volume)
   _fadeVol = 1.00;
   _toneEnable = true;
   long _clk = F_CPU / (1 * frequency * 2) - 1;
+  if (_clk >= 65536) {
+    _clk = 65536 - 1;
+  }
+
+  cli(); // stop interrupts
+  OCR1A = _clk;
+  sei(); // allow interrupts
+
+  _toneVol = volume;
+  return;
+}
+
+void Volume::tone(float frequency, byte volume)
+{
+  _freq_float = frequency;
+  _fadeOut = false;
+  _fadeVol = 1.00;
+  _toneEnable = true;
+  float _clk_float = float(F_CPU) / (1.0f * frequency * 2.0f) - 1.0f;
+  long _clk = long(_clk_float);
   if (_clk >= 65536) {
     _clk = 65536 - 1;
   }
